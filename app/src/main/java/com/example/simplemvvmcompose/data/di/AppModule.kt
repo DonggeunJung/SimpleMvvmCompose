@@ -1,5 +1,6 @@
-package com.example.simplemvvmcompose.data
+package com.example.simplemvvmcompose.data.di
 
+import com.example.simplemvvmcompose.data.UserApi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
