@@ -12,13 +12,11 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.Dimension
 import com.example.simplemvvmcompose.data.User
-import com.example.simplemvvmcompose.ui.theme.Purple80
 import com.example.simplemvvmcompose.ui.theme.PurpleGrey40
 import com.example.simplemvvmcompose.ui.theme.PurpleGrey80
 import com.example.simplemvvmcompose.ui.theme.SimpleMvvmComposeTheme
@@ -28,7 +26,7 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     @Inject
-    lateinit var viewModel : UserViewModel
+    lateinit var viewModel: UserViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,19 +48,35 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun Greeting(user: User, modifier: Modifier = Modifier) {
-    ConstraintLayout(modifier = modifier.fillMaxSize().background(color = PurpleGrey80)) {
+    ConstraintLayout(modifier = modifier
+        .fillMaxSize()
+        .background(color = PurpleGrey80)) {
         val (header, mainArea, footer) = createRefs()
 
-        Text(text = user.name, color = PurpleGrey40, modifier = modifier.fillMaxWidth().padding(20.dp)
-            .constrainAs(header) { top.linkTo(parent.top) }
+        Text(text = user.name,
+            color = PurpleGrey40,
+            modifier = modifier
+                .fillMaxWidth()
+                .padding(20.dp)
+                .constrainAs(header) { top.linkTo(parent.top) }
         )
-        Text(text = user.location, color = PurpleGrey40, modifier = modifier.fillMaxSize().padding(20.dp)
-            .constrainAs(mainArea) { top.linkTo(header.bottom)
-            bottom.linkTo(footer.top)
-            height = Dimension.fillToConstraints}
+        Text(text = user.location,
+            color = PurpleGrey40,
+            modifier = modifier
+                .fillMaxSize()
+                .padding(20.dp)
+                .constrainAs(mainArea) {
+                    top.linkTo(header.bottom)
+                    bottom.linkTo(footer.top)
+                    height = Dimension.fillToConstraints
+                }
         )
-        Text(text = user.bio, color = PurpleGrey40, modifier = modifier.fillMaxWidth().padding(20.dp)
-            .constrainAs(footer) { bottom.linkTo(parent.bottom) }
+        Text(text = user.bio,
+            color = PurpleGrey40,
+            modifier = modifier
+                .fillMaxWidth()
+                .padding(20.dp)
+                .constrainAs(footer) { bottom.linkTo(parent.bottom) }
         )
     }
 }
