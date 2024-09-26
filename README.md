@@ -20,6 +20,6 @@
 
 < Additional Infomation >
 
-GitHub Link : https://github.com/DonggeunJung/SimpleMvvmHiltKt
+GitHub Link : https://github.com/DonggeunJung/SimpleMvvmCompose
 
 Any question => Email : topsan72@gmail.com / Author : Donggeun Jung (Dennis)
